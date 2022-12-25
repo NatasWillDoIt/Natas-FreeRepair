@@ -1,0 +1,1 @@
+Config.Money = math.random(250, 600)
