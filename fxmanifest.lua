@@ -20,7 +20,7 @@ server_scripts {
 
 client_scripts {
 	'client/client_target.lua',
-	'client/client.lua',
+	'client/main.lua',
 	'client/config.lua',
 
 }

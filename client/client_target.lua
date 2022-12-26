@@ -1,6 +1,7 @@
 QBCore = exports['qb-core']:GetCoreObject()
 
-exports['qb-target']:AddBoxZone("EastsideRepairZone", vector3(891.09, -2117.75, 30.46), 50, 60, {
+exports['qb-target']:AddBoxZone("EastsideRepairZone", vector3(891.09, -2117.75, 30.46), 50, 60, 
+  {
     name = "EastsideRepairZone", 
     heading = 355.0, 
     debugPoly = false, 
@@ -19,17 +20,14 @@ exports['qb-target']:AddBoxZone("EastsideRepairZone", vector3(891.09, -2117.75, 
           if IsPedAPlayer(entity) then return false end 
           return true
         end,
-        job = {["police"] = 0, ["mechanic"] = 0}, 
-        drawDistance = 150.0,
-        drawColor = {0, 205, 255, 255}, 
-        successDrawColor = {30, 144, 255, 255},
+        job = {["police"] = 0, ["ambulance"] = 0, ["mechanic"] = 0}, 
       }
     },
     distance = 2.5, 
-    print('^2Natas-Snippet-^6 LS Customs Client Repair CustomZone Loaded')
   })
-  
-  exports['qb-target']:AddBoxZone("LSMainRepair", vector3(-335.83, -136.66, 38.53), 30, 50, { -- The name has to be unique, the coords a vector3 as shown, the 1.5 is the length of the boxzone and the 1.6 is the width of the boxzone, the length and width have to be float values
+  --LS Customs Main Shop
+  exports['qb-target']:AddBoxZone("LSMainRepair", vector3(-335.83, -136.66, 38.53), 30, 50, 
+  { 
     name = "LSMainRepair", 
     heading = 250.00, 
     debugPoly = false, 
@@ -38,7 +36,7 @@ exports['qb-target']:AddBoxZone("EastsideRepairZone", vector3(891.09, -2117.75, 
   }, {
     options = { 
       { 
-        num = 1, 
+        num = 2, 
         type = "client",
         event = "natas-freerepair:client:mfr", 
         icon = 'fa fa-screwdriver-wrench', 
@@ -48,10 +46,7 @@ exports['qb-target']:AddBoxZone("EastsideRepairZone", vector3(891.09, -2117.75, 
           if IsPedAPlayer(entity) then return false end 
           return true
         end,
-        job = {["police"] = 0, ["mechanic"] = 0}, 
-        drawDistance = 150.0,
-        drawColor = {255, 255, 255, 255}, 
-        successDrawColor = {30, 144, 255, 255},
+        job = {["police"] = 0, ["ambulance"] = 0, ["mechanic"] = 0}, 
       }
     },
     distance = 2.5, -- This is the distance for you to be at for the target to turn blue, this is in GTA units and has to be a float value
@@ -68,7 +63,7 @@ exports['qb-target']:AddBoxZone("EastsideRepairZone", vector3(891.09, -2117.75, 
 }, {
   options = { 
     { 
-      num = 1, 
+      num = 3, 
       type = "client",
       event = "natas-freerepair:client:mfr", 
       icon = 'fa fa-screwdriver-wrench', 
@@ -78,12 +73,61 @@ exports['qb-target']:AddBoxZone("EastsideRepairZone", vector3(891.09, -2117.75, 
         if IsPedAPlayer(entity) then return false end 
         return true
       end,
-      job = {["police"] = 0, ["mechanic"] = 0}, 
-      drawDistance = 150.0,
-      drawColor = {255, 255, 255, 255}, 
-      successDrawColor = {30, 144, 255, 255},
+      job = {["police"] = 0, ["ambulance"] = 0, ["mechanic"] = 0}, 
     }
   },
   distance = 2.5, -- This is the distance for you to be at for the target to turn blue, this is in GTA units and has to be a float value
-  print('^2Natas-FreeRepair-^6 LS Customs Client Repair BennyZone Loaded')
+})
+
+
+--Police MDPR 
+exports['qb-target']:AddBoxZone("PoliceStationRepair", vector3(484.59, -1020.65, 27.21), 15, 11, { -- The name has to be unique, the coords a vector3 as shown, the 1.5 is the length of the boxzone and the 1.6 is the width of the boxzone, the length and width have to be float values
+name = "PoliceStationRepair", 
+heading = 250.00, 
+debugPoly = false, 
+minZ = 23.45, 
+maxZ = 27.45, 
+}, {
+options = { 
+  { 
+    num = 4, 
+    type = "client",
+    event = "natas-freerepair:client:mfr", 
+    icon = 'fa fa-screwdriver-wrench', 
+    label = '~g~Free~w` Repair Vehicle', 
+    targeticon = 'fa fa-screwdriver-wrench',
+    canInteract = function(entity, distance, data) 
+      if IsPedAPlayer(entity) then return false end 
+      return true
+    end,
+    job = {["police"] = 0, ["ambulance"] = 0}, 
+  }
+},
+distance = 2.5, -- This is the distance for you to be at for the target to turn blue, this is in GTA units and has to be a float value
+})
+
+--Police MDPR 
+exports['qb-target']:AddBoxZone("PillboxStationRepair", vector3(331.61, -550.5, 28.04), 20, 30, { -- The name has to be unique, the coords a vector3 as shown, the 1.5 is the length of the boxzone and the 1.6 is the width of the boxzone, the length and width have to be float values
+name = "PillboxStationRepair", 
+heading = 350.00, 
+debugPoly = false, 
+minZ = 26.44, 
+maxZ = 30.44, 
+}, {
+options = { 
+  { 
+    num = 5, 
+    type = "client",
+    event = "natas-freerepair:client:mfr", 
+    icon = 'fa fa-screwdriver-wrench', 
+    label = '^1 Free Repair Vehicle', 
+    targeticon = 'fa fa-screwdriver-wrench',
+    canInteract = function(entity, distance, data) 
+      if IsPedAPlayer(entity) then return false end 
+      return true
+    end,
+    job = {["police"] = 0, ["ambulance"] = 0}, 
+  }
+},
+distance = 2.5, -- This is the distance for you to be at for the target to turn blue, this is in GTA units and has to be a float value
 })
