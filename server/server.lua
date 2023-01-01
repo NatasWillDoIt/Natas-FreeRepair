@@ -10,7 +10,7 @@ QBCore = exports['qb-core']:GetCoreObject() end)
         Player.Functions.RemoveMoney('bank', moneycharge, "repair-bill")
         exports['qb-management']:AddMoney('mechanic', moneycharge)
         QBCore.Functions.Notify('Repair Done', 'success')
-end)]]--
+end)[[--]]
 
 RegisterNetEvent('natas-freerepair:server:sendBillingMail', function()
     local src = source
@@ -20,4 +20,8 @@ RegisterNetEvent('natas-freerepair:server:sendBillingMail', function()
         exports['qb-management']:AddMoney('mechanic', moneycharge)
         QBCore.Functions.Notify('Repair Done', 'success')
 end)
+
+
+
+
 print('^6[Natas-mfr]^1Sever.lua loaded')

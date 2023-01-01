@@ -7,7 +7,6 @@ local playerjob= PlayerJob.type
 --Zone Checks 
 local isInsideDutyZone = false
 local isInsideVehiclePlateZone = false
-
 local dutyTargetBoxID = 'dutyTarget'
 local stashTargetBoxID = 'stashTarget'
 
@@ -112,6 +111,8 @@ end
 
 RegisterNetEvent('natas-freerepair:client:mfr', function()
     local playerPed = PlayerPedId()
+    local img = image
+    local img = "nui://qs-inventory/html/"
     local vehicle = GetVehiclePedIsIn(playerPed, false)
     FreezeEntityPosition(vehicle, true)
     TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"}) --Will Play the fix emote while in vehicle fix it
@@ -126,7 +127,7 @@ RegisterNetEvent('natas-freerepair:client:mfr', function()
         SetVehicleDeformationFixed(vehicle)
         FreezeEntityPosition(vehicle, false)
         SetVehicleEngineHealth(vehicle, 9999)
-        --SetVehiclePetrolTankHealth(vehicle, 9999)
+        SetVehiclePetrolTankHealth(vehicle, 9999)
         SetVehicleFixed(vehicle)
     end, function() -- Cancel
         QBCore.Functions.Notify('Cancelled preparing equipement', 'error')

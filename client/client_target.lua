@@ -1,13 +1,13 @@
 QBCore = exports['qb-core']:GetCoreObject()
 local img = "nui://qs-inventory/html/"
 
-exports['qb-target']:AddBoxZone("EastsideRepairZone", vector3(891.09, -2117.75, 30.46), 50, 60, 
-  {
+exports['qb-target']:AddBoxZone("EastsideRepairZone", vector3(891.8, -2122.53, 30.48), 20, 40,
+ {
     name = "EastsideRepairZone", 
     heading = 355.0, 
     debugPoly = false, 
-    minZ = 27.46, 
-    maxZ = 31.46, 
+    minZ = 28.08, 
+    maxZ = 32.08, 
   }, {
     options = { 
       { 
@@ -118,7 +118,7 @@ maxZ = 31.59,
 }, {
 options = { 
   { 
-    num = 5, 
+    num = 6, 
     type = "client",
     event = "natas-freerepair:client:mfr", 
     icon = 'fa fa-screwdriver-wrench', 
@@ -133,3 +133,30 @@ options = {
 },
 distance = 2.5, 
 })
+
+
+--Medic Mepair 
+exports['qb-target']:AddBoxZone("MedicRepair", vector3(-1835.76, -379.0, 40.07), 4, 6, {
+  name = "MedicRepair", 
+  heading = 50, 
+  debugPoly = false, 
+  minZ =37.27,
+  maxZ = 41.27,
+  }, {
+  options = { 
+    { 
+      num = 5, 
+      type = "client",
+      event = "natas-freerepair:client:mfr", 
+      icon = 'fa-duotone fa-truck-medical', 
+      label = 'Medic Repair Station', 
+      targeticon = 'fa-duotone fa-truck-medical',
+      canInteract = function(entity, distance, data) 
+        if IsPedAPlayer(entity) then return false end 
+        return true
+      end,
+      job = {["police"] = 0, ["ambulance"] = 0}, 
+    }
+  },
+  distance = 2.5, 
+  })
